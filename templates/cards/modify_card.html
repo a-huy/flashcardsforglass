@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block header %}
+<link href="/static/css/cards/modify_card.css" rel="stylesheet">
+<link href="/static/css/animate.min.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>
+                <a href="{{ uri_for('deck.info', slug=deck.key.id()) }}">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                &nbsp;
+                {% if action == 'add' %}Add Card to "{{ deck.name }}"{% else %}Edit Card{% endif %}
+            </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card-preview-wrapper">
+                <iframe id="card-preview" src="{{ uri_for('card.preview') }}" scrolling="no"></iframe>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <form id="add-card-form" role="form" action="{% if action == 'add' %}{{ uri_for('card.add', deck_slug=deck.key.id()) }}{% else %}{{ uri_for('card.edit', card_id=card.key.urlsafe()) }}{% endif %}" method="post">
+                <ul class="form-tabs">
+                    <li>
+                        <input type="radio" checked name="add-card-tab" id="tab-general-radio">
+                        <label for="tab-general-radio" class="card-tab-label"><h4>Options</h4></label>
+                        <div id="tab-content-general" class="tab-content animated">
+                            <div class="input-wrapper form-group fadeInDown">
+                                <input type="text" id="input-title" class="form-control" name="title" placeholder="Title (optional)" {% if action == 'edit' %}value="{{ form.title.value() }}"{% endif %}>
+                            </div>
+                            <div class="form-group hex-marker-wrapper text-center">
+                                <div id="hex-marker-label-name" class="pull-left">Color Tag:</div>
+                                <input id="hex-marker-radio-none" {% if action == 'add' or (action == 'edit' and (not form.hex_marker.value())) %}checked{% endif %} type="radio" name="hex_marker" value="">
+                                <label id="hex-marker-label-none" for="hex-marker-radio-none"><i class="fa fa-minus"></i></label>
+                                <input id="hex-marker-radio-gray" {% if action == 'edit' and form.hex_marker.value() == '#808080' %}checked{% endif %} type="radio" name="hex_marker" value="#808080">
+                                <label id="hex-marker-label-gray" for="hex-marker-radio-gray">&nbsp;</label>
+                                <input id="hex-marker-radio-blue" {% if action == 'edit' and form.hex_marker.value() == '#34a7ff' %}checked{% endif %} type="radio" name="hex_marker" value="#34a7ff">
+                                <label id="hex-marker-label-blue" for="hex-marker-radio-blue">&nbsp;</label>
+                                <input id="hex-marker-radio-red" {% if action == 'edit' and form.hex_marker.value() == '#cc3333' %}checked{% endif %} type="radio" name="hex_marker" value="#cc3333">
+                                <label id="hex-marker-label-red" for="hex-marker-radio-red">&nbsp;</label>
+                                <input id="hex-marker-radio-green" {% if action == 'edit' and form.hex_marker.value() == '#99cc33' %}checked{% endif %} type="radio" name="hex_marker" value="#99cc33">
+                                <label id="hex-marker-label-green" for="hex-marker-radio-green">&nbsp;</label>
+                                <input id="hex-marker-radio-yellow" {% if action == 'edit' and form.hex_marker.value() == '#ddbb11' %}checked{% endif %} type="radio" name="hex_marker" value="#ddbb11">
+                                <label id="hex-marker-label-yellow" for="hex-marker-radio-yellow">&nbsp;</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" name="add-card-tab" id="tab-front-radio">
+                        <label for="tab-front-radio" class="card-tab-label"><h4>Front</h4></label>
+                        <div id="tab-content-front" class="tab-content animated">
+                            <div class="input-wrapper fadeInDown">
+                                <textarea id="input-front-content" class="form-control card-content" name="front_content" rows="12" placeholder="Front content HTML">{% if action == 'edit' %}{{ form.front_content.value() }}{% endif %}</textarea>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="radio" name="add-card-tab" id="tab-back-radio">
+                        <label for="tab-back-radio" class="card-tab-label"><h4>Back</h4></label>
+                        <div id="tab-content-back" class="tab-content animated">
+                            <div class="input-wrapper fadeInDown">
+                                <textarea id="input-back-content" class="form-control card-content" name="back_content" rows="12" placeholder="Back content HTML">{% if action == 'edit' %}{{ form.back_content.value() }}{% endif %}</textarea>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="form-actions">
+                    <div class="submit-wrapper pull-left">
+                        <button class="btn btn-primary form-submit" data-form="#add-card-form">Save</button>
+                    </div>
+                    <div class="form-error text-danger pull-right"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row base-templates" style="display:none;">
+        <div class="col-md-12">
+            <h3>Select Template (click to load into currently selected side)</h3>
+        </div>
+    </div>
+
+    {% set template_name = cycler('text', 'auto-resize', 'hybrid', 'hybrid-mosaic', 'multipage', 'simple-event', 'list', 'knowledge', 'knowledge-mosaic', 'stock', 'sports', 'flight', 'movie', 'transit', 'simple-message', 'author') %}
+    {% for num in range(16) %}
+    {% set curr_template_name = template_name.next() %}
+    {% if num % 4 == 0 %}<div class="row base-templates" style="display:none;">{% endif %}
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="card-iframe-wrapper" data-template-name="{{ curr_template_name }}">
+            <img class="smallcard-template" src="/static/images/card_templates/{{ curr_template_name}}.jpg">
+            <!--<iframe class="smallcard-template" src="{{ uri_for('card.preview') }}?template={{ curr_template_name }}" scrolling="no" data-template="{{ curr_template_name }}"></iframe>-->
+        </div>
+    </div>
+    {% if (num + 1) % 4 == 0 %}</div>{% endif %}
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/modules/jquery.isotope.min.js"></script>
+<script src="/static/js/cards/card_base_templates.js"></script>
+<script src="/static/js/cards/modify_card.js"></script>
+{% endblock %}

@@ -1,0 +1,163 @@
+iframe {
+    border: 0;
+    width: 266px;
+    user-select: none;
+}
+
+iframe.xscard {
+    width: 128px;
+    height: 68px;
+}
+
+iframe.smcard {
+    width: 256px;
+    height: 136px;
+}
+
+.shift-btn-wrapper {
+    vertical-align: middle;
+}
+
+.shift-btn-wrapper.smcard {
+    line-height: 138px;
+    height: 138px;
+}
+
+.shift-btn-wrapper.xscard {
+    line-height: 70px;
+    height: 70px;
+}
+
+.list-group {
+    margin: 0;
+}
+
+.list-group-item i {
+    vertical-align: middle;
+    font-size: 30px;
+}
+
+.moveable-card-wrapper {
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.action-btn-wrapper {
+    margin: 0 15px;
+}
+
+#deck-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-item {
+    vertical-align: middle;
+}
+
+.card-delete {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    float: right;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.card-delete:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.card-delete.active {
+    color: #ddbb11;
+}
+
+.card-delete.active:hover {
+    background-color: #ddbb11;
+    color: #ffffff;
+}
+
+.card-hex-marker {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 23px;
+    right: 23px;
+    float: right;
+}
+
+.btn-group {
+    padding: 6px 12px;
+}
+
+.btn-order {
+    background-color: #30b8e2 !important;
+}
+
+.btn-glass-gray {
+    background-color: #808080;
+}
+
+.btn-glass-blue {
+    background-color: #34a7ff;
+}
+
+.btn-glass-red {
+    background-color: #cc3333;
+}
+
+.btn-glass-green {
+    background-color: #99cc33;
+}
+
+.btn-glass-yellow {
+    background-color: #ddbb11;
+}
+
+.filter-colors .btn {
+    opacity: 0.4;
+}
+
+.filter-colors .btn.active, .filter-colors .btn:hover {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    opacity: 1.0;
+}
+
+.sort-options, .order-btn {
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.tooltip {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .action-btns {
+        text-align: center;
+    }
+}
+
+@media (max-width: 514px) {
+    h1 {
+        font-weight: 300;
+        font-size: 20px;
+    }
+}

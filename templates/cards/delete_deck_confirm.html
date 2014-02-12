@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="add-deck-modal-label">Confirm Deck Delete</h4>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete the deck </span>"<span class="text-primary"><strong>{{ deck.name }}</strong></span>?"
+            <br><br><span class="text-danger">All of the cards in this deck will be removed.</span>
+        </div>
+        <div class="modal-footer">
+            <input type="hidden" class="deck-slug" value="{{ deck.key.id() }}">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger btn-confirm-delete" data-success-wait="0" data-loading-text="Deleting...">Delete</button>
+        </div><!-- /.modal-content -->
+    </div>
+</div><!-- /.modal-dialog -->
+<script src="/static/js/cards/deck_delete_confirm.js"></script>

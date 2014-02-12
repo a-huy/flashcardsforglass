@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flashcards for Glass</title>
+        <link href="/favicon.ico" rel="shortcut icon" type="image/png">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <!--<link href="/static/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">-->
+        <link href="/static/css/spot.css" rel="stylesheet">
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/static/css/base.css" rel="stylesheet" media="screen">
+        {% block header %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ uri_for('home') }}">Flashcards for Glass</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            {% if not is_authenticated %}
+                            <a href="{{ uri_for('auth') }}">LOGIN</a>
+                            {% else %}
+                            <a href="{{ uri_for('decks.listing') }}">DECKS</a>
+                            {% endif %}
+                        </li>
+                        {% if is_authenticated %}
+                        <li class="active warning">
+                            <a href="{{ uri_for('logout') }}">LOGOUT</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="body-wrapper">
+        {% block page_content %}
+
+        {% endblock %}
+        </div>
+
+        <script src="/static/js/modules/jquery-2.1.0.min.js"></script>
+        <script src="/static/js/modules/bootstrap.min.js"></script>
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>

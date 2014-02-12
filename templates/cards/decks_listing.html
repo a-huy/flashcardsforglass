@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block header %}
+<link href="/static/css/bootstrap-timepicker.min.css" rel="stylesheet">
+<link href="/static/css/cards/decks_listing.css" rel="stylesheet" media="screen">
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 pull-left">
+            <h1>Decks</h1>
+        </div>
+        <div class="col-md-4 text-right">
+            <h1>
+                <a data-toggle="modal" data-target="#add-deck-modal" href="{{ uri_for('deck.add') }}">
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped table-bordered">
+            {% if decks.count() > 0 %}
+            <tr>
+                <th class="text-center">Status<br>(click to select)</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Delay (in minutes)</th>
+                <th class="text-center">Start Time</th>
+                <th class="text-center"># Cards</th>
+                <th class="text-center">&nbsp;</th>
+                <th class="text-center">&nbsp;</th>
+            </tr>
+            {% for deck in decks %}
+            <tr>
+                <td data-card-count="{{ deck.card_count }}" data-deck-slug="{{ deck.key.id() }}" class="text-center{% if not deck.active %} inactive"{% else %} active"{% endif %} style="cursor: pointer;">
+                    <h4><i class="fa {% if deck.active %}fa-check-circle-o{% else %}fa-circle-o{% endif %}"></i></h4>
+                </td>
+                <td class="text-center">
+                    <h4><a href="{{ uri_for('deck.info', slug=deck.key.id()) }}">{{ deck.name }}</a></h4>
+                </td>
+                <td class="text-center">
+                    <h5>{{ (deck.delay / 60)|int() }}</h5>
+                </td>
+                <td class="text-center">
+                    <h5>{{ deck.start.time().strftime('%I:%M %p') }}</h5>
+                </td>
+                <td class="text-center">
+                    <h5>{{ deck.card_count }}</h5>
+                </td>
+                <td class="text-center">
+                    <h4><a data-toggle="modal" data-target="#edit-deck-modal" href="{{ uri_for('deck.edit', slug=deck.key.id()) }}"><i class="fa fa-edit"></i></a></h4>
+                </td>
+                <td class="text-center">
+                    <h4><a data-toggle="modal" data-target="#delete-deck-modal" href="{{ uri_for('deck.delete', slug=deck.key.id()) }}"><i class="fa fa-trash-o"></i></a></h4>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td class="text-center">
+                    <h4>
+                        You do not have any decks.
+                        <a data-toggle="modal" data-target="#add-deck-modal" href="{{ uri_for('deck.add') }}">Create</a> a new one!
+                    </h4>
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="add-deck-modal" tabindex="-1" role="dialog" aria-labelledby="add-deck-modal-label" aria-hidden="true"></div>
+<div class="modal fade" id="edit-deck-modal" tabindex="-1" role="dialog" aria-labelledby="edit-deck-modal-label" aria-hidden="true"></div>
+<div class="modal fade" id="delete-deck-modal" tabindex="-1" role="dialog" aria-labelledby="edit-deck-modal-label" aria-hidden="true"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/modules/bootstrap-timepicker.min.js"></script>
+<script src="/static/js/cards/decks_listing.js"></script>
+{% endblock %}

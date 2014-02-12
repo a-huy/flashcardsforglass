@@ -1,0 +1,255 @@
+{
+    "name": "US State Capitals",
+    "cards": [
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Alabama</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Montgomery, AL</strong></p></section></article>",
+            "index": 1
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Alaska</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Juneau, AK</strong></p></section></article>",
+            "index": 2
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Arizona</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Phoenix, AZ</strong></p></section></article>",
+            "index": 3
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Arkansas</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Little Rock, AR</strong></p></section></article>",
+            "index": 4
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>California</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Sacramento, CA</strong></p></section></article>",
+            "index": 5
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Colorado</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Denver, CO</strong></p></section></article>",
+            "index": 6
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Connecticut</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Hartford, CT</strong></p></section></article>",
+            "index": 7
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Deleware</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Dover, DE</strong></p></section></article>",
+            "index": 8
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Florida</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Tellahassee, FL</strong></p></section></article>",
+            "index": 9
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Georgia</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Atlanta, GA</strong></p></section></article>",
+            "index": 10
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Hawaii</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Honolulu, HI</strong></p></section></article>",
+            "index": 11
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Idaho</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Boise, ID</strong></p></section></article>",
+            "index": 12
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Illinois</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Springfield, IL</strong></p></section></article>",
+            "index": 13
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Indiana</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Indianapolis, IN</strong></p></section></article>",
+            "index": 14
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Iowa</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Des Moines, IA</strong></p></section></article>",
+            "index": 15
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Kansas</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Topeka, KS</strong></p></section></article>",
+            "index": 16
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Kentucky</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Frankfort, KY</strong></p></section></article>",
+            "index": 17
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Louisiana</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Baton Rouge, LA</strong></p></section></article>",
+            "index": 18
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Maine</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Augusta, ME</strong></p></section></article>",
+            "index": 19
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Maryland</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Annapolis, MD</strong></p></section></article>",
+            "index": 20
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Massachusetts</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Boston, MA</strong></p></section></article>",
+            "index": 21
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Michigan</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Lansing, MI</strong></p></section></article>",
+            "index": 22
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Minnesota</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Saint Paul, MN</strong></p></section></article>",
+            "index": 23
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Mississippi</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Jackson, MS</strong></p></section></article>",
+            "index": 24
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Missouri</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Jefferson City, MO</strong></p></section></article>",
+            "index": 25
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Montana</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Helena, MT</strong></p></section></article>",
+            "index": 26
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Nebraska</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Lincoln, NE</strong></p></section></article>",
+            "index": 27
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Nevada</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Carson City, NV</strong></p></section></article>",
+            "index": 28
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>New Hampshire</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Concord, NH</strong></p></section></article>",
+            "index": 29
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>New Jersey</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Trenton, NJ</strong></p></section></article>",
+            "index": 30
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>New Mexico</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Santa Fe, NM</strong></p></section></article>",
+            "index": 31
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>New York</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Albany, NY</strong></p></section></article>",
+            "index": 32
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>North Carolina</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Raleigh, NC</strong></p></section></article>",
+            "index": 33
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>North Dakota</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Bismark, ND</strong></p></section></article>",
+            "index": 34
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Ohio</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Columbus, OH</strong></p></section></article>",
+            "index": 35
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Oklahoma</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Oklahoma City, OK</strong></p></section></article>",
+            "index": 36
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Oregon</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Salem, OR</strong></p></section></article>",
+            "index": 37
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Pennsylvania</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Harrisburg, PA</strong></p></section></article>",
+            "index": 38
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Rhode Island</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Providence, RI</strong></p></section></article>",
+            "index": 39
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>South Carolina</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Columbia, SC</strong></p></section></article>",
+            "index": 40
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>South Dakota</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Pierre, SD</strong></p></section></article>",
+            "index": 41
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Tennessee</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Nashville, TN</strong></p></section></article>",
+            "index": 42
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Texas</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Austin, TX</strong></p></section></article>",
+            "index": 43
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Utah</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Salt Lake City, UT</strong></p></section></article>",
+            "index": 44
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Vermont</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Montpelier, VT</strong></p></section></article>",
+            "index": 45
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Virginia</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Richmond, VA</strong></p></section></article>",
+            "index": 46
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Washington</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Olympia, WA</strong></p></section></article>",
+            "index": 47
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>West Virginia</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Charleston, WV</strong></p></section></article>",
+            "index": 48
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Wisconsin</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Madison, WI</strong></p></section></article>",
+            "index": 49
+        },
+        {
+            "front_content": "<article><section><p class=\"text-auto-size align-center\"><br>Wyoming</p></section></article>",
+            "back_content": "<article><section><p class=\"text-auto-size align-center\"><br><strong class=\"blue\">Cheyenne, WY</strong></p></section></article>",
+            "index": 50
+        }
+    ]
+}

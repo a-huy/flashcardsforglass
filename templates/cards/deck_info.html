@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block header %}
+<link href="/static/css/cards/deck_info.css" rel="stylesheet">
+<link href="/static/css/isotope.css" rel="stylesheet">
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>
+                <a href="{{ uri_for('decks.listing') }}">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                &nbsp;
+                {{ deck.name }}
+            </h1>
+        </div>
+        <div class="col-sm-4 text-right action-btns">
+            <h1>
+                <span class="action-btn-wrapper">
+                    <a data-toggle="modal" data-target="#edit-deck-modal" href="{{ uri_for('deck.edit', slug=deck.key.id()) }}">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </span>
+                <span class="action-btn-wrapper">
+                    <a data-toggle="modal" data-target="#card-order-modal" href="{{ uri_for('deck.order', slug=deck.key.id()) }}">
+                        <i class="fa fa-arrows-v"></i>
+                        <i class="fa fa-list-ol"></i>
+                    </a>
+                </span>
+                <span id="add-card-link" class="action-btn-wrapper">
+                    <a href="{{ uri_for('card.add', deck_slug=deck.key.id()) }}">
+                        <i class="fa fa-plus"></i>
+                        <i class="fa fa-file-o"></i>
+                    </a>
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h5>Time between flashcards: {{ (deck.delay / 60)|int }} minutes, starting at {{ deck.start.time().strftime('%I:%M %p') }}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <!--<div class="panel-heading text-center">Sorting / Filtering Options</div>-->
+                <div class="panel-body text-center">
+                    <div class="col-md-4">
+                        Sort By:
+                        <div class="btn-group sort-options" data-toggle="buttons">
+                            <label class="btn btn-sm btn-primary active" data-sort="index" data-toggle="tooltip" data-placement="top" data-title="Index">
+                                <input type="radio" name="sort" id="sort-index"> <i class="fa fa-list-ol"></i>
+                            </label>
+                            <label class="btn btn-sm btn-primary" data-sort="marker" data-toggle="tooltip" data-placement="top" data-title="Color Tag">
+                                <input type="radio" name="sort" id="sort-color"> <i class="fa fa-square"></i>
+                            </label>
+                             <label class="btn btn-sm btn-primary" data-sort="created" data-toggle="tooltip" data-placement="top" data-title="Created Date">
+                                <input type="radio" name="sort" id="sort-created"> <i class="fa fa-plus"></i><i class="fa fa-file-o"></i>
+                            </label>
+                             <label class="btn btn-sm btn-primary" data-sort="modified" data-toggle="tooltip" data-placement="top" data-title="Modified Date">
+                                <input type="radio" name="sort" id="sort-modified"> <i class="fa fa-edit"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        Order:
+                        <div class="btn-group order-btn">
+                            <button type="button" class="btn btn-sm btn-primary btn-order" data-toggle="button"><i class="fa fa-sort-desc"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        Filter:
+                        <div class="btn-group filter-colors" data-toggle="buttons">
+                            <label class="btn btn-primary active" data-color="none">
+                                <input type="checkbox"> <i class="fa fa-minus"></i>
+                            </label>
+                            <label class="btn btn-glass-gray active" data-color="gray">
+                                <input type="checkbox"> &nbsp;&nbsp;
+                            </label>
+                            <label class="btn btn-glass-blue active" data-color="blue">
+                                <input type="checkbox"> &nbsp;&nbsp;
+                            </label>
+                            <label class="btn btn-glass-red active" data-color="red">
+                                <input type="checkbox"> &nbsp;&nbsp;
+                            </label>
+                            <label class="btn btn-glass-green active" data-color="green">
+                                <input type="checkbox"> &nbsp;&nbsp;
+                            </label>
+                            <label class="btn btn-glass-yellow active" data-color="yellow">
+                                <input type="checkbox"> &nbsp;&nbsp;
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if cards %}
+        <div class="col-md-12 text-center">
+            <div id="deck-container">
+                {% for card in cards %}
+                <div class="card-item text-center" data-card-id="{{ card.key.urlsafe() }}" data-card-hex-marker="{% if card.hex_marker %}{{ card.hex_marker }}{% else %}none{% endif %}" data-card-created-date="{{ card.created_date }}" data-card-modified-date="{{ card.modified_date }}" data-card-index="{{ card.index }}">
+                    <input type="hidden" class="card-front-content" value="{{ card.front_content }}">
+                    <input type="hidden" class="card-back-content" value="{{ card.back_content }}">
+                    <div class="card-delete" data-toggle="tooltip" data-placement="bottom" data-title="Click again to confirm delete."><i class="fa fa-trash-o"></i></div>
+                    <iframe class="smallcard-template" src="{{ uri_for('card.preview') }}?card={{ card.key.urlsafe() }}" scrolling="no" data-template="text"></iframe>
+                    {% if card.hex_marker %}<div class="card-hex-marker" style="background-color: {{ card.hex_marker }}"></div>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="col-md-10 col-md-offset-1">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td class="text-center">
+                            <h4>
+                                You do not have any cards in this deck.
+                                <a href="{{ uri_for('card.add', deck_slug=deck.key.id()) }}">Add</a> one!
+                            </h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+<div class="modal fade" id="edit-deck-modal" tabindex="-1" role="dialog" aria-labelledby="add-deck-modal-label" aria-hidden="true"></div>
+<div class="modal fade" id="card-order-modal" tabindex="-1" role="dialog" aria-labelledby="card-order-modal-label" aria-hidden="true" data-url="{{ uri_for('deck.order', slug=deck.key.id()) }}"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/modules/jquery.isotope.min.js"></script>
+<script src="/static/js/modules/isotope_override.js"></script>
+<script src="/static/js/modules/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="/static/js/modules/jquery-ui-touch-punch.min.js"></script>
+<script src="/static/js/modules/bootstrap-timepicker.min.js"></script>
+<script src="/static/js/cards/deck_info.js"></script>
+{% endblock %}

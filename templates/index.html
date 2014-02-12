@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block header %}
+<link href="/static/css/index.css" rel="stylesheet">
+{% endblock %}
+
+{% block page_content %}
+<div id="headerwrap">
+    <div class="container">
+        <div class="row centered">
+            <div class="col-lg-8 col-lg-offset-2">
+            <h2>Use Your <b>Google Glass</b> To</h2>
+            <h1>Study.</h1>
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!-- headerwrap -->
+
+<div id="r">
+    <div class="container">
+        <div class="row centered">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h4>REVIEW MATERIAL AS YOU GO</h4>
+                <p>
+                    No more carrying around textbooks or fat stacks of index cards.
+                    Just distill the information you need into as many cards as you like, set a timer, and you're set!
+                    Learn vocabulary during your workout routine.
+                    Review the names of the human muscles while drinking with your buddies the night before the exam.
+                    Use flashcards to pace yourself and remind yourself of your talking points during a presentation.
+                    <br><br>The number of possibilities is too damn high.
+                </p>
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!-- r -->
+
+<div class="container w">
+    <div class="row centered">
+        <br><br>
+        <div class="col-sm-4">
+            <i class="fa fa-list"></i>
+            <h4>DECKS</h4>
+            <p>Flashcards are organized into decks, and only one deck can stream your flashcards to you at any given time. Don't worry though, you can easily switch between decks or pause streaming altogether.</p>
+        </div><!-- col-lg-4 -->
+
+        <div class="col-sm-4">
+            <i class="fa fa-file"></i>
+            <h4>CARDS</h4>
+            <p>Customize the look and feel of your cards with HTML and preview them before they get pushed to your Glass. You can build them from scratch or from one of <a href="http://thinkwearables.com/google-glass/google-glass-card-templates/" target="_blank">Google's base templates</a>.</p>
+        </div><!-- col-lg-4 -->
+
+        <div class="col-sm-4">
+            <i class="glyphicon glyphicon-time"></i>
+            <h4>TIMERS</h4>
+            <p>Control how often you get a new flashcard as well as the time to start receiving them. You can adjust these intervals anytime and adjust the pacing to match your current situation.</p>
+        </div><!-- col-lg-4 -->
+
+    </div><!-- row -->
+    <br><br>
+</div><!-- container -->
+
+<div id="lg">
+    <div class="container">
+        <div class="row centered">
+            <div class="start-button col-md-2 col-md-offset-5">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="{{ uri_for('decks.listing') }}">
+                            <h4>GET STARTED</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!-- dg -->
+
+{% endblock %}

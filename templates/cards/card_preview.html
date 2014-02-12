@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <link href="/static/css/cards/base_style.css" rel="stylesheet">
+        <link href="/static/css/cards/card_preview.css" rel="stylesheet">
+        <script src="/static/js/modules/jquery-2.1.0.min.js"></script>
+        <script src="/static/js/cards/card_script.js"></script>
+    </head>
+    <body class="full">
+        <div class="card-size {% if size %}{{ size }}{% elif not template and not card %}scalable{% else %}smallcard{% endif %}">
+
+            {% if not template %}
+
+            <div class="scroll leftscroll" style="display: none;"></div>
+            <div class="card" {% if card %}data-card-id="{{ card.key.urlsafe() }}"{% endif %}>
+                {% if card %}
+                    {% autoescape false %}
+                    {% if side == 'front' %}
+                    {{ card.front_content }}
+                    {% else %}
+                    {{ card.back_content }}
+                    {% endif %}
+                    {% endautoescape %}
+                {% endif %}
+            </div>
+            <div class="scroll rightscroll" style="display: none;"></div>
+
+            {% elif template == 'text' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                        <p class="text-x-large" id="map-text-node" data-text-autosize="true" style="">
+                            <div>This item auto-resizes according to the text length</div>
+                        </p>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>TEXT<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'auto-resize' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                        <p class="text-large" data-text-autosize="true" style="">
+                            This <em class="yellow">paragraph</em> auto-resizes according to the <strong class="blue">HTML</strong> content length.
+                        </p>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>AUTO RESIZE<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'hybrid' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article class="photo">
+                    <img src="https://mirror-api-playground.appspot.com/links/filoli-spring-fling.jpg" width="100%" height="100%">
+                    <div class="overlay-gradient-tall-dark"></div>
+                    <section>
+                        <p class="text-normal" data-text-autosize="true" style="">Spring Fling Fundraiser at Filoli</p>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>HYBRID<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'hybrid-mosaic' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article class="photo">
+                    <ul class="mosaic mosaic3">
+                        <li style="background-image: url(https://mirror-api-playground.appspot.com/links/washington.jpg)"></li>
+                        <li style="background-image: url(https://mirror-api-playground.appspot.com/links/lincoln.png)"></li>
+                        <li style="background-image: url(https://mirror-api-playground.appspot.com/links/obama.jpg)"></li>
+                    </ul>
+                    <div class="overlay-gradient-tall-dark"></div>
+                    <section>
+                        <p class="text-large" data-text-autosize="true" style="">United States Presidents</p>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>HYBRID MOSAIC<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'multipage' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article class="cover-only">
+                    <section>
+                        <p class="text-x-large" data-text-autosize="true" style="">This is the cover card of a long list</p>
+                    </section>
+                    <footer>
+                        <p>Hover to scroll</p>
+                    </footer>
+                    <footer id="map-time-footer">
+                        <time>MULTIPAGE<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+                <!--<article class="auto-paginate">-->
+                    <!--<ul class="text-x-small">-->
+                        <!--<li>First item</li>-->
+                        <!--<li>Second item</li>-->
+                        <!--<li>Third item</li>-->
+                        <!--<li>Fourth item</li>-->
+                        <!--<li>Fifth item</li>-->
+                        <!--<li>Sixth item</li>-->
+                        <!--<li>Seventh item</li>-->
+                        <!--<li>Eighth item</li>-->
+                        <!--<li>Ninth item</li>-->
+                        <!--<li>Tenth item</li>-->
+                    <!--</ul>-->
+                    <!--<footer id="map-time-footer">-->
+                        <!--<time>MULTIPAGE<img class="footer-brand-icon"></time>-->
+                    <!--</footer>-->
+                <!--</article>-->
+            </div>
+
+            {% elif template == 'simple-event' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                        <div class="text-x-large" data-text-autosize="true" style="">
+                            <p class="yellow">8:00<sub>PM</sub></p>
+                            <p>Dinner with folks tonight</p>
+                        </div>
+                    </section>
+                    <footer>
+                        <div>Their place</div>
+                    </footer>
+                    <footer id="map-time-footer">
+                        <time>SIMPLE EVENT<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'list' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                        <ul class="text-x-small">
+                            <li>Gingerbread</li>
+                            <li>Chocolate Chip Cookies</li>
+                            <li>Tiramisu</li>
+                            <li>Donuts</li>
+                            <li>Sugar Plum Gummies</li>
+                        </ul>
+                    </section>
+                    <footer>
+                        <p>Grocery list</p>
+                    </footer>
+                    <footer id="map-time-footer">
+                        <time>LIST<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'knowledge' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <figure>
+                        <img src="https://mirror-api-playground.appspot.com/links/lincoln.png">
+                    </figure>
+                    <section>
+                        <table class="text-small align-justify">
+                            <tbody>
+                                <tr>
+                                    <td>Born</td>
+                                    <td>Feb 12, 1809</td>
+                                </tr>
+                                <tr>
+                                    <td>Died</td>
+                                    <td>Apr 15, 1865</td>
+                                </tr>
+                                <tr>
+                                    <td>Height</td>
+                                    <td>6' 4"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>KNOWLEDGE<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'knowledge-mosaic' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <figure>
+                        <ul class="mosaic mosaic3">
+                            <li style="background-image: url(https://mirror-api-playground.appspot.com/links/washington.jpg)"></li>
+                            <li style="background-image: url(https://mirror-api-playground.appspot.com/links/lincoln.png)"></li>
+                            <li style="background-image: url(https://mirror-api-playground.appspot.com/links/obama.jpg)"></li>
+                            <li style="background-image: url(https://mirror-api-playground.appspot.com/links/washington.jpg)"></li>
+                            <li style="background-image: url(https://mirror-api-playground.appspot.com/links/lincoln.png)"></li>
+                        </ul>
+                    </figure>
+                    <section>
+                        <p class="text-medium">
+                            U.S. Presidents
+                        </p>
+                        <table class="text-small align-justify">
+                            <tbody>
+                                <tr>
+                                    <td>Washington</td>
+                                    <td>1<sup>st</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>Lincoln</td>
+                                    <td>16<sup>th</sup></td>
+                                </tr>
+                                <tr>
+                                    <td>Obama</td>
+                                    <td>44<sup>th</sup></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>KNOWLEDGE MOSAIC<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'stock' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                    <table class="align-justify">
+                        <tbody>
+                            <tr>
+                                <td>AAPL</td>
+                                <td>503.73</td>
+                                <td class="red">-16.57 (3.18%)</td>
+                            </tr>
+                            <tr>
+                                <td>AMZN</td>
+                                <td>274.03</td>
+                                <td class="green">+6.09 (2.27%)</td>
+                            </tr>
+                            <tr>
+                                <td>GOOG</td>
+                                <td>727.58</td>
+                                <td class="red">-12.41 (1.68%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>STOCK<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'sports' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                        <div class="layout-two-column">
+                            <div class="align-center">
+                                <p>Celtics</p>
+                                <p class="text-x-large">101</p>
+                            </div>
+                            <div class="align-center">
+                                <p>Bulls</p>
+                                <p class="text-x-large">95</p>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <p>Final Score</p>
+                    </footer>
+                    <footer id="map-time-footer">
+                        <time>SPORTS<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'flight' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                        <div class="layout-figure">
+                            <div class="align-center">
+                                <p class="text-x-large">BOS</p>
+                                <img src="https://mirror-api-playground.appspot.com/links/plane.png" width="50" height="50">
+                                <p class="text-x-large">SFO</p>
+                            </div>
+                            <div>
+                                <div class="text-normal">
+                                    <p>Virgin America 351</p>
+                                    <p>Gate B38</p>
+                                    <p>8:35am</p>
+                                    <p class="green">On Time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>FLIGHT<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'movie' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <figure>
+                        <img src="https://mirror-api-playground.appspot.com/links/movie.jpg">
+                    </figure>
+                    <section>
+                        <h1 class="text-large">Movie</h1>
+                        <p class="text-x-small">
+                            <img class="icon-small" src="https://mirror-api-playground.appspot.com/links/rated_r.png">
+                            120 min / Drama
+                        </p>
+                        <hr>
+                        <p class="text-normal">
+                            1:15 2:10 4:15<br>
+                            Movie Theatre
+                        </p>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>MOVIE<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'transit' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <section>
+                        <table class="text-small">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="https://mirror-api-playground.appspot.com/links/icons_30_0000_blue.png" class="icon-small">
+                                        Daly City <span class="muted">›</span> Dublin
+                                    </td>
+                                    <td>
+                                        <div class="text-minor align-right muted">in 5 min</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://mirror-api-playground.appspot.com/links/icons_30_0001_green.png" class="icon-small">
+                                        Milbrae <span class="muted">›</span> Richmond
+                                    </td>
+                                    <td>
+                                        <div class="text-minor align-right muted">in 7 min</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://mirror-api-playground.appspot.com/links/icons_30_0002_yellow.png" class="icon-small">
+                                        Fremont <span class="muted">›</span> Daly City
+                                    </td>
+                                    <td>
+                                        <div class="text-minor align-right muted">in 16 min</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://mirror-api-playground.appspot.com/links/icons_30_0003_red.png" class="icon-small">
+                                        Pittsburg/Bay Point <span class="muted">›</span> SFO
+                                    </td>
+                                    <td>
+                                        <div class="text-minor align-right muted">in 21 min</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <footer>
+                        <img src="https://mirror-api-playground.appspot.com/links/icons_30_0025_geo_transit.png" class="left">
+                        <p>Embarcadero BART</p>
+                    </footer>
+                    <footer id="map-time-footer">
+                        <time>TRANSIT<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'simple-message' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article>
+                    <figure>
+                        <img src="https://lh3.googleusercontent.com/-quy9Ox8dQJI/T3xUHhub6PI/AAAAAAAAHAQ/YvjqA3Pw1sM/glass_photos.jpg?sz=360" style="height: 360px; margin: 0px -60px;">
+                    </figure>
+                    <section>
+                        <p class="text-small" id="map-text-node" data-text-autosize="true" style="">
+                            <div>Hello Explorers,</div>
+                            <div><br></div>
+                            <div>Welcome to Glass!</div>
+                            <div><br></div>
+                            <div>+Project Glass</div>
+                            <div><br></div>
+                        </p>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>SIMPLE MESSAGE<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% elif template == 'author' %}
+
+            <div class="card" style="left: 0px;" data-template="{{ template }}">
+                <article class="author">
+                    <img src="https://mirror-api-playground.appspot.com/links/filoli-spring-fling.jpg" width="100%" height="100%">
+                    <div class="overlay-full"></div>
+                    <header>
+                        <img src="https://mirror-api-playground.appspot.com/links/lincoln-avatar.png">
+                        <h1>@abraham_lincoln</h1>
+                        <h2>Gettysburg, Pennsylvania</h2>
+                    </header>
+                    <section>
+                        <p class="text-small" data-text-autosize="true" style="">
+                            Four score and seven years ago, our fathers brought forth on this continent a new nation, conceived in <span class="blue">#liberty</span>
+                        </p>
+                    </section>
+                    <footer id="map-time-footer">
+                        <time>AUTHOR<img class="footer-brand-icon"></time>
+                    </footer>
+                </article>
+            </div>
+
+            {% endif %}
+        </div>
+    </body>
+</html>

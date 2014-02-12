@@ -1,0 +1,198 @@
+iframe {
+    border: 0;
+}
+
+#add-card-form {
+    top: -10px;
+}
+
+.form-tabs input[type=radio] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.form-tabs {
+    float: none;
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: -22px auto 52px;
+    height: 300px;
+}
+
+.form-tabs li{
+    float: left;
+}
+
+.form-tabs label {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 2px 2px 0 0;
+    color: #30b8e2;
+    cursor: pointer;
+    position: relative;
+    /*top: 3px;*/
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-tabs label:hover {
+    top: 0px;
+    background: #88d7f1;
+}
+
+[id^=tab]:checked + label {
+    background: #30b8e2;
+    top: 0;
+}
+
+[id^=tab]:checked + label h4{
+    color: #fff;
+}
+
+[id^=tab]:checked ~ [id^=tab-content] {
+    display: block;
+}
+
+.tab-content {
+    z-index: 2;
+    display: none;
+    text-align: left;
+    width: 100%;
+    height: 275px;
+    font-size: 20px;
+    line-height: 140%;
+    background: #30b8e2;
+    padding: 10px;
+    color: white;
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    box-sizing: border-box;
+    border-radius: 0 2px 2px 2px;
+}
+
+.input-wrapper {
+    -webkit-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+.card-iframe-wrapper {
+    width: 266px;
+    text-align: center;
+    margin: 0 auto 15px;
+    opacity: 0.8;
+}
+
+.card-iframe-wrapper:hover {
+    opacity: 1.0;
+}
+
+.card-preview-wrapper {
+    text-align: center;
+}
+
+.card-preview-wrapper.mdcard {
+    line-height: 362px;
+}
+
+.card-preview-wrapper.smcard {
+    line-height: 200px;
+}
+
+.smallcard-template {
+    width: 266px;
+}
+
+#card-preview {
+    width: 640px;
+    /*width: 100%;*/
+    max-width: 640px;
+    height: 360px;
+    /*position: absolute;*/
+    background-color: black;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    vertical-align: middle;
+}
+
+#card-preview.mdcard {
+    width: 536px;
+    height: 302px;
+    vertical-align: middle;
+}
+
+#card-preview.smcard {
+    width: 256px;
+    height: 144px;
+}
+
+.hex-marker-wrapper label {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.hex-marker-wrapper label:hover {
+}
+
+[id^=hex-marker]:checked + label {
+    border: 2px solid black;
+}
+
+#hex-marker-label-name {
+    line-height: 30px;
+    font-size: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+#hex-marker-label-none {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 20px;
+}
+
+#hex-marker-label-none i {
+    top: -5px;
+    left: -5px;
+    position: relative;
+    line-height: inherit;
+}
+
+#hex-marker-label-gray {
+    background-color: #808080;
+}
+
+#hex-marker-label-blue {
+    background-color: #34a7ff;
+}
+
+#hex-marker-label-red {
+    background-color: #cc3333;
+}
+
+#hex-marker-label-green {
+    background-color: #99cc33;
+}
+
+#hex-marker-label-yellow {
+    background-color: #ddbb11;
+}

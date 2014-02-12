@@ -1,0 +1,50 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="add-deck-modal-label">Create New Deck</h4>
+        </div>
+        <div class="modal-body">
+            <form id="add-deck-form" class="form-horizontal" role="form" action="{{ uri_for('deck.add') }}" method="post">
+                <div class="form-group">
+                    <label for="input-name" class="col-sm-3 control-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="input-name" name="name" placeholder="Name">
+                        <div class="errors text-danger"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-name" class="col-sm-3 control-label">Delay</label>
+                    <div class="col-sm-9">
+                        <input type="tel" class="form-control" id="input-delay" name="delay" placeholder="Delay (in minutes)">
+                        <div class="errors text-danger"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-name" class="col-sm-3 control-label">Start Time</label>
+                    <div class="col-sm-9 bootstrap-timepicker">
+                        <input type="text" class="form-control input-small" id="input-start" name="start" readonly placeholder="Start Time (format is hh:mm, default is midnight)">
+                        <div class="errors text-danger"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-template" class="col-sm-3 control-label">Create from Premade Deck</label>
+                    <div class="col-sm-9">
+                        <select id=input-template class="form-control" name="deck_template_name">
+                            <option value="None">None</option>
+                            {% for template in deck_template_names %}
+                            <option value="{{ template }}">{{ template }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary form-submit" data-form="#add-deck-form" data-success-wait="1000" data-loading-text="Creating...">Create</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+<script>$('#input-start').timepicker({minuteStep: 1, showMeridian: false, defaultTime: '00:00'});</script>
+<script src="/static/js/modules/forms.js"></script>
