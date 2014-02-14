@@ -15,6 +15,7 @@ class SendFlashCardTask(webapp2.RequestHandler):
         if not deck: return
 
         card = deck.get_next_card()
+        if not card: return
         mirror_service = MirrorFlashcardService(userid, self)
         mirror_service.send_card(card)
 
